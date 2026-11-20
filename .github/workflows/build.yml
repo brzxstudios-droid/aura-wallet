@@ -1,0 +1,7 @@
+git init
+printf "build/\n.gradle/\n.idea/\nlocal.properties\n*.iml\n" > .gitignore
+git add .
+git commit -m "Versão inicial do Aurora Wallet"
+git branch -M main
+git remote add origin https://github.com/SEU_USUARIO/AuroraWallet.git
+git push -u origin main
