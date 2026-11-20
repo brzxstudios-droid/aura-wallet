@@ -1,0 +1,18 @@
+name: Extrair projeto
+on: workflow_dispatch
+permissions:
+  contents: write
+jobs:
+  unzip:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          unzip -q AuroraWallet.zip
+          cp -r AuroraWallet/. .
+          rm -rf AuroraWallet AuroraWallet.zip
+          git config user.name "github-actions"
+          git config user.email "github-actions@users.noreply.github.com"
+          git add -A
+          git commit -m "Extrai projeto Aurora Wallet"
+          git push
